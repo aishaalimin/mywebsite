@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Galleries - My Personal Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #F5FFFA; color: #003333; }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #00494C; padding: 15px 30px;
+        }
+        header img#logo { height: 50px; cursor: pointer; border: 2px solid #F5FFFA; border-radius: 8px; }
+        .social-media a img { height: 38px; margin-left: 10px; border-radius: 6px; }
+        .social-media a img:hover { opacity: 0.75; }
+
+        nav { background: #008080; text-align: center; padding: 12px; }
+        nav a { color: #F5FFFA; text-decoration: none; margin: 0 14px; font-weight: bold; font-size: 15px; }
+        nav a:hover { color: #00CED1; text-decoration: underline; }
+
+        .page-title {
+            background: #008080; color: #F5FFFA;
+            text-align: center; padding: 20px; font-size: 1.6em; letter-spacing: 1px;
+        }
+
+        .gallery-container {
+            max-width: 960px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* ===== SLIDER ===== */
+        .slider-wrapper {
+            background: white;
+            border: 2px solid #008080;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .slider-wrapper h3 {
+            color: #00494C;
+            font-size: 1.1em;
+            margin-bottom: 16px;
+        }
+        .slider {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 3px solid #008080;
+        }
+        .slider-track {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+        }
+        .slider-track img {
+            min-width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,128,128,0.75);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            font-size: 1.4em;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+        .slider-btn:hover { background: #00494C; }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+
+        /* DOTS */
+        .slider-dots {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        .dot {
+            width: 10px; height: 10px;
+            background: #80C4C0;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .dot.active { background: #008080; }
+
+        /* SECTION HEADING */
+        .section-heading {
+            color: #F5FFFA;
+            font-size: 1.2em;
+            padding: 12px 20px;
+            background: #00494C;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            margin-top: 16px;
+        }
+
+        /* PHOTO GRID */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .photo-card {
+            background: white;
+            border: 2px solid #008080;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .photo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,128,128,0.3);
+        }
+        .photo-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+
+        /* LIGHTBOX */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.88);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 85%;
+            max-height: 80vh;
+            border: 4px solid #F5FFFA;
+            border-radius: 8px;
+        }
+        .lightbox .lb-close {
+            position: absolute;
+            top: 20px; right: 30px;
+            color: #00CED1;
+            font-size: 2.5em;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .lightbox .lb-close:hover { color: white; }
+        .lightbox .lb-nav {
+            display: flex;
+            gap: 30px;
+            margin-top: 16px;
+        }
+        .lightbox .lb-nav button {
+            background: #008080;
+            color: #F5FFFA;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .lightbox .lb-nav button:hover { background: #00494C; }
+
+        footer { background: #00494C; color: #F5FFFA; text-align: center; padding: 18px; margin-top: 50px; font-size: 14px; }
+        footer a { color: #00CED1; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.htm"><img id="logo" src="pic/logo.jpg" alt="My Logo"></a>
+    <div class="social-media">
+        <a href="https://x.com/" target="_blank"><img src="pic/x.png" alt="X"></a>
+        <a href="https://www.facebook.com/" target="_blank"><img src="pic/facebook.png" alt="Facebook"></a>
+        <a href="https://instagram.com" target="_blank"><img src="pic/ig.jpg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img src="pic/youtube.png" alt="Youtube"></a>
+    </div>
+</header>
+
+<!-- NAV -->
+<nav>
+    <a href="biography.html">Biography</a>
+    <a href="resume.html">Resume</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="gallery.html">Galleries</a>
+    <a href="download.html">Download</a>
+    <a href="links.html">Links</a>
+    <a href="login.php">Login</a>
+    <a href="admin/logout.php">Logout</a>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="page-title">Galleries</div>
+
+<div class="gallery-container">
+
+    <!-- ===== SLIDER ===== -->
+    <div class="slider-wrapper">
+        <h3>&#127921; My Gallery</h3>
+        <div class="slider" id="mainSlider">
+            <div class="slider-track" id="sliderTrack">
+                <img src="pic/matrics1.jpg" alt="Slide 1">
+                <img src="pic/matrics2.jpg" alt="Slide 2">
+                <img src="pic/matrics3.jpg" alt="Slide 3">
+                <img src="pic/degree1.jpg" alt="Slide 4">
+                <img src="pic/degree2.jpg" alt="Slide 5">
+                <img src="pic/degree3.jpg" alt="Slide 6">
+            </div>
+            <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+        <div class="slider-dots" id="sliderDots"></div>
+    </div>
+
+    <!-- ===== SECTION 1: MATRICULATION ===== -->
+    <div class="section-heading">&#127979; Matriculation Era</div>
+    <div class="photo-grid">
+        <div class="photo-card"><img src="pic/matrics1.jpg" alt="Matric 1" onclick="openLightbox('matric', 0)"></div>
+        <div class="photo-card"><img src="pic/matrics2.jpg" alt="Matric 2" onclick="openLightbox('matric', 1)"></div>
+        <div class="photo-card"><img src="pic/matrics3.jpg" alt="Matric 3" onclick="openLightbox('matric', 2)"></div>
+        <div class="photo-card"><img src="pic/matrics4.jpg" alt="Matric 4" onclick="openLightbox('matric', 3)"></div>
+        <div class="photo-card"><img src="pic/matrics5.jpg" alt="Matric 5" onclick="openLightbox('matric', 4)"></div>
+        <div class="photo-card"><img src="pic/matrics6.jpg" alt="Matric 6" onclick="openLightbox('matric', 5)"></div>
+    </div>
+
+    <!-- ===== SECTION 2: DEGREE ===== -->
+    <div class="section-heading">&#127891; Degree Era</div>
+    <div class="photo-grid">
+        <div class="photo-card"><img src="pic/degree1.jpg" alt="Degree 1" onclick="openLightbox('degree', 0)"></div>
+        <div class="photo-card"><img src="pic/degree2.jpg" alt="Degree 2" onclick="openLightbox('degree', 1)"></div>
+        <div class="photo-card"><img src="pic/degree3.jpg" alt="Degree 3" onclick="openLightbox('degree', 2)"></div>
+        <div class="photo-card"><img src="pic/degree4.jpg" alt="Degree 4" onclick="openLightbox('degree', 3)"></div>
+        <div class="photo-card"><img src="pic/degree5.jpg" alt="Degree 5" onclick="openLightbox('degree', 4)"></div>
+        <div class="photo-card"><img src="pic/degree6.jpg" alt="Degree 6" onclick="openLightbox('degree', 5)"></div>
+    </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+    <span class="lb-close" onclick="closeLightbox()">&times;</span>
+    <img id="lb-img" src="" alt="">
+    <div class="lb-nav">
+        <button onclick="changePhoto(-1)">&#8592; Prev</button>
+        <button onclick="changePhoto(1)">Next &#8594;</button>
+    </div>
+</div>
+
+<script>
+    // ===== SLIDER =====
+    const totalSlides = 6;
+    let currentSlide = 0;
+    let autoSlideInterval;
+
+    // Create dots
+    const dotsContainer = document.getElementById('sliderDots');
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.onclick = () => goToSlide(i);
+        dotsContainer.appendChild(dot);
+    }
+
+    function updateSlider() {
+        document.getElementById('sliderTrack').style.transform = `translateX(-${currentSlide * 100}%)`;
+        document.querySelectorAll('.dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentSlide);
+        });
+    }
+
+    function changeSlide(direction) {
+        currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+        updateSlider();
+        resetAutoSlide();
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlider();
+        resetAutoSlide();
+    }
+
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        autoSlideInterval = setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }, 3000);
+    }
+
+    // Start auto slide every 3 seconds
+    resetAutoSlide();
+
+    // ===== LIGHTBOX =====
+    const galleries = {
+        matric: ['pic/matrics1.jpg','pic/matrics2.jpg','pic/matrics3.jpg',
+                 'pic/matrics4.jpg','pic/matrics5.jpg','pic/matrics6.jpg'],
+        degree: ['pic/degree1.jpg','pic/degree2.jpg','pic/degree3.jpg',
+                 'pic/degree4.jpg','pic/degree5.jpg','pic/degree6.jpg']
+    };
+
+    let currentSection = '';
+    let currentIndex = 0;
+
+    function openLightbox(section, index) {
+        currentSection = section;
+        currentIndex = index;
+        updateLightbox();
+        document.getElementById('lightbox').classList.add('active');
+    }
+
+    function updateLightbox() {
+        document.getElementById('lb-img').src = galleries[currentSection][currentIndex];
+    }
+
+    function changePhoto(direction) {
+        const total = galleries[currentSection].length;
+        currentIndex = (currentIndex + direction + total) % total;
+        updateLightbox();
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+    }
+
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+        if (e.target === this) closeLightbox();
+    });
+</script>
+
+<!-- FOOTER -->
+<footer>
+    <a href="disclaimer.html">Disclaimer &amp; Copyright</a>
+    &copy; 2026 Nur Aisha Binti Noralimin. All rights reserved.
+</footer>
+
+</body>
+</html>

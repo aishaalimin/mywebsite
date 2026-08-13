@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Links - My Personal Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #F5FFFA; color: #003333; }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #00494C; padding: 15px 30px;
+        }
+        header img#logo { height: 50px; cursor: pointer; border: 2px solid #F5FFFA; border-radius: 8px; }
+        .social-media a img { height: 38px; margin-left: 10px; border-radius: 6px; }
+        .social-media a img:hover { opacity: 0.75; }
+
+        nav { background: #008080; text-align: center; padding: 12px; }
+        nav a { color: #F5FFFA; text-decoration: none; margin: 0 14px; font-weight: bold; font-size: 15px; }
+        nav a:hover { color: #00CED1; text-decoration: underline; }
+
+        .page-title {
+            background: #008080; color: #F5FFFA;
+            text-align: center; padding: 20px; font-size: 1.6em; letter-spacing: 1px;
+        }
+
+        .links-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-heading {
+            color: #F5FFFA;
+            font-size: 1.2em;
+            padding: 12px 20px;
+            background: #00494C;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .link-card {
+            background: white;
+            border: 2px solid #008080;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .link-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 18px rgba(0,128,128,0.2);
+        }
+
+        .link-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .link-logo {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 10px;
+            border: 1px solid #80C4C0;
+            padding: 5px;
+            background: #F5FFFA;
+        }
+
+        .link-text h3 {
+            color: #00494C;
+            font-size: 1.2em;
+            margin-bottom: 6px;
+        }
+        .link-text p {
+            color: #004D4D;
+            font-size: 13px;
+            max-width: 420px;
+            line-height: 1.6;
+        }
+
+        .link-btn {
+            background: #008080;
+            color: #F5FFFA;
+            text-decoration: none;
+            padding: 12px 26px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .link-btn:hover { background: #00494C; }
+
+        footer { background: #00494C; color: #F5FFFA; text-align: center; padding: 18px; margin-top: 50px; font-size: 14px; }
+        footer a { color: #00CED1; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.htm"><img id="logo" src="pic/logo.jpg" alt="My Logo"></a>
+    <div class="social-media">
+        <a href="https://x.com/" target="_blank"><img src="pic/x.png" alt="X"></a>
+        <a href="https://www.facebook.com/" target="_blank"><img src="pic/facebook.png" alt="Facebook"></a>
+        <a href="https://instagram.com" target="_blank"><img src="pic/ig.jpg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img src="pic/youtube.png" alt="Youtube"></a>
+    </div>
+</header>
+
+<!-- NAV -->
+<nav>
+    <a href="biography.html">Biography</a>
+    <a href="resume.html">Resume</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="gallery.html">Galleries</a>
+    <a href="download.html">Download</a>
+    <a href="links.html">Links</a>
+    <a href="login.php">Login</a>
+    <a href="admin/logout.php">Logout</a>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="page-title">Links</div>
+
+<div class="links-container">
+
+    <div class="section-heading">&#127760; Useful Links</div>
+
+    <!-- UFUTURE -->
+    <div class="link-card">
+        <div class="link-info">
+            <img src="pic/ufuture.png" alt="uFuture Logo" class="link-logo">
+            <div class="link-text">
+                <h3>uFuture</h3>
+            </div>
+        </div>
+        <a href="https://ufuture.uitm.edu.my/" target="_blank" class="link-btn">&#128279; Visit</a>
+    </div>
+
+    <!-- STUDENT PORTAL -->
+    <div class="link-card">
+        <div class="link-info">
+            <img src="pic/uitm.png" alt="Student Portal Logo" class="link-logo">
+            <div class="link-text">
+                <h3>i-Student Portal</h3>
+            </div>
+        </div>
+        <a href="https://simsweb.uitm.edu.my/SPORTAL_APP/SPORTAL_LOGIN/index_login.htm" target="_blank" class="link-btn">&#128279; Visit</a>
+    </div>
+
+    <!-- FSKM WEBSITE -->
+    <div class="link-card">
+        <div class="link-info">
+            <img src="pic/fskm.jpg" alt="FSKM Logo" class="link-logo">
+            <div class="link-text">
+                <h3>FSKM Website</h3>
+            </div>
+        </div>
+        <a href="https://fskm.uitm.edu.my/v5/ms/utama" target="_blank" class="link-btn">&#128279; Visit</a>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <a href="disclaimer.html">Disclaimer &amp; Copyright</a>
+    &copy; 2026 Nur Aisha Binti Noralimin. All rights reserved.
+</footer>
+
+</body>
+</html>

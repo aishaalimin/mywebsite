@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timetable - My Personal Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #F5FFFA; color: #003333; }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #00494C; padding: 15px 30px;
+        }
+        header img#logo { height: 50px; cursor: pointer; border: 2px solid #F5FFFA; border-radius: 8px; }
+        .social-media a img { height: 38px; margin-left: 10px; border-radius: 6px; }
+        .social-media a img:hover { opacity: 0.75; }
+
+        nav { background: #008080; text-align: center; padding: 12px; }
+        nav a { color: #F5FFFA; text-decoration: none; margin: 0 14px; font-weight: bold; font-size: 15px; }
+        nav a:hover { color: #00CED1; text-decoration: underline; }
+
+        .page-title {
+            background: #008080; color: #F5FFFA;
+            text-align: center; padding: 20px; font-size: 1.6em; letter-spacing: 1px;
+        }
+
+        .tt-container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+
+        .tt-container h2 {
+            color: #00494C; margin-bottom: 16px; font-size: 1.3em;
+            border-left: 5px solid #008080; padding-left: 10px;
+        }
+
+        .tt-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border: 2px solid #008080;
+            margin-bottom: 40px;
+        }
+        .tt-table th {
+            background: #008080;
+            color: #F5FFFA;
+            padding: 10px 6px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .tt-table td {
+            border: 1px solid #80C4C0;
+            padding: 6px;
+            text-align: center;
+            font-size: 11px;
+            color: #003333;
+            vertical-align: middle;
+        }
+        .tt-table tr:nth-child(even) td { background: #E8F8F5; }
+
+        .tt-table td.day-col {
+            background: #00494C !important;
+            color: #F5FFFA !important;
+            font-weight: bold;
+            font-size: 12px;
+            width: 70px;
+        }
+
+        /* SUBJECT CELL — clickable */
+        .subject {
+            background: #008080;
+            color: #F5FFFA;
+            border-radius: 6px;
+            padding: 6px 4px;
+            font-size: 11px;
+            line-height: 1.5;
+            text-decoration: none;
+            display: block;
+            transition: background 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+        .subject:hover {
+            background: #00494C;
+            transform: scale(1.03);
+        }
+        .subject .code {
+            font-weight: bold;
+            font-size: 12px;
+            display: block;
+        }
+        .subject .info {
+            font-size: 10px;
+            color: #E0F5F0;
+            display: block;
+        }
+
+        /* COURSE DETAILS SECTION */
+        .details-section {
+            margin-top: 10px;
+        }
+        .details-section h2 {
+            color: #00494C;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            border-left: 5px solid #008080;
+            padding-left: 10px;
+        }
+
+        .course-card {
+            background: white;
+            border: 2px solid #008080;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            scroll-margin-top: 20px;
+        }
+        .course-card .card-header {
+            background: #00494C;
+            color: #F5FFFA;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1em;
+        }
+        .course-card .card-header span.code-badge {
+            background: #00CED1;
+            color: #003333;
+            padding: 3px 12px;
+            border-radius: 4px;
+            font-size: 0.95em;
+            font-weight: bold;
+        }
+        .course-card table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .course-card table td {
+            padding: 10px 20px;
+            border-bottom: 1px solid #A8DCDA;
+            font-size: 14px;
+            color: #003333;
+        }
+        .course-card table td:first-child {
+            font-weight: bold;
+            color: #008080;
+            width: 160px;
+        }
+        .course-card table tr:last-child td { border-bottom: none; }
+
+        /* BACK TO TOP */
+        .back-top {
+            text-align: right;
+            margin-bottom: 30px;
+        }
+        .back-top a {
+            color: #008080;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 13px;
+        }
+        .back-top a:hover { text-decoration: underline; }
+
+        footer { background: #00494C; color: #F5FFFA; text-align: center; padding: 18px; margin-top: 40px; font-size: 14px; }
+        footer a { color: #00CED1; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.htm"><img id="logo" src="pic/logo.jpg" alt="My Logo"></a>
+    <div class="social-media">
+        <a href="https://x.com/" target="_blank"><img src="pic/x.png" alt="X"></a>
+        <a href="https://www.facebook.com/" target="_blank"><img src="pic/facebook.png" alt="Facebook"></a>
+        <a href="https://instagram.com" target="_blank"><img src="pic/ig.jpg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img src="pic/youtube.png" alt="Youtube"></a>
+    </div>
+</header>
+
+<!-- NAV -->
+<nav>
+    <a href="biography.html">Biography</a>
+    <a href="resume.html">Resume</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="gallery.html">Galleries</a>
+    <a href="download.html">Download</a>
+    <a href="links.html">Links</a>
+    <a href="login.php">Login</a>
+    <a href="admin/logout.php">Logout</a>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="page-title">Timetable</div>
+
+<div class="tt-container">
+    <h2 id="top">&#128197; My Timetable</h2>
+
+    <table class="tt-table">
+        <tr>
+            <th>Day</th>
+            <th>8:00–9:00</th>
+            <th>9:00–10:00</th>
+            <th>10:00–11:00</th>
+            <th>11:00–12:00</th>
+            <th>12:00–13:00</th>
+            <th>13:00–14:00</th>
+            <th>14:00–15:00</th>
+            <th>15:00–16:00</th>
+            <th>16:00–17:00</th>
+            <th>17:00–18:00</th>
+            <th>18:00–19:00</th>
+        </tr>
+
+        <!-- AHAD -->
+        <tr>
+            <td class="day-col">SUNDAY</td>
+            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+        </tr>
+
+        <!-- ISNIN -->
+        <tr>
+            <td class="day-col">MONDAY</td>
+            <td>-</td>
+            <td colspan="2">
+                <a href="#csc577" class="subject">
+                    <span class="code">CSC577</span>
+                    <span class="info">Zeta MK2</span>
+                    <span class="info">Ahmad Farid Bin Najmuddin</span>
+                </a>
+            </td>
+            <td colspan="2">
+                <a href="#csc569" class="subject">
+                    <span class="code">CSC569</span>
+                    <span class="info">Zeta BK3</span>
+                    <span class="info">Nurkhairizan Binti Khairudin</span>
+                </a>
+            </td>
+            <td>-</td>
+            <td colspan="2">
+                <a href="#csc574" class="subject">
+                    <span class="code">CSC574</span>
+                    <span class="info">Zeta MK3</span>
+                    <span class="info">Siti Rozanae Bt Ismail</span>
+                </a>
+            </td>
+            <td>-</td><td>-</td><td>-</td>
+        </tr>
+
+        <!-- SELASA -->
+        <tr>
+            <td class="day-col">TUESDAY</td>
+            <td>-</td><td>-</td>
+            <td colspan="2">
+                <a href="#csc584" class="subject">
+                    <span class="code">CSC584</span>
+                    <span class="info">Zeta MK1</span>
+                    <span class="info">Masurah Binti Mohamad</span>
+                </a>
+            </td>
+            <td>-</td><td>-</td>
+            <td colspan="2">
+                <a href="#csc508" class="subject">
+                    <span class="code">CSC508</span>
+                    <span class="info">Zeta BK3</span>
+                    <span class="info">Suraya Binti Masrom</span>
+                </a>
+            </td>
+            <td colspan="2">
+                <a href="#lcc500" class="subject">
+                    <span class="code">LCC500</span>
+                    <span class="info">Zeta BK3</span>
+                    <span class="info">Nurdiyana Binti Mohamad Yusof</span>
+                </a>
+            </td>
+            <td>-</td>
+        </tr>
+
+        <!-- RABU -->
+        <tr>
+            <td class="day-col">WEDNESDAY</td>
+            <td colspan="2">
+                <a href="#csc577" class="subject">
+                    <span class="code">CSC577</span>
+                    <span class="info">DK 200A</span>
+                    <span class="info">Ahmad Farid Bin Najmuddin</span>
+                </a>
+            </td>
+            <td>-</td><td>-</td><td>-</td><td>-</td>
+            <td colspan="2">
+                <a href="#csc569" class="subject">
+                    <span class="code">CSC569</span>
+                    <span class="info">FSKM BK 07</span>
+                    <span class="info">Nurkhairizan Binti Khairudin</span>
+                </a>
+            </td>
+            <td>-</td>
+            <td colspan="2">
+                <a href="#tmc451" class="subject">
+                    <span class="code">TMC451</span>
+                    <span class="info">Zeta BK5</span>
+                    <span class="info">Sin Mei Kuan</span>
+                </a>
+            </td>
+        </tr>
+
+        <!-- KHAMIS -->
+        <tr>
+            <td class="day-col">THURSDAY</td>
+            <td>-</td>
+            <td colspan="2">
+                <a href="#csc508" class="subject">
+                    <span class="code">CSC508</span>
+                    <span class="info">Zeta BK3</span>
+                    <span class="info">Suraya Binti Masrom</span>
+                </a>
+            </td>
+            <td colspan="2">
+                <a href="#csc574" class="subject">
+                    <span class="code">CSC574</span>
+                    <span class="info">Zeta MK2</span>
+                    <span class="info">Siti Rozanae Bt Ismail</span>
+                </a>
+            </td>
+            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+        </tr>
+
+        <!-- JUMAAT -->
+        <tr>
+            <td class="day-col">FRIDAY</td>
+            <td>-</td><td>-</td>
+            <td colspan="2">
+                <a href="#csc584" class="subject">
+                    <span class="code">CSC584</span>
+                    <span class="info">Zeta MK3</span>
+                    <span class="info">Masurah Binti Mohamad</span>
+                </a>
+            </td>
+            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+        </tr>
+
+        <!-- SABTU -->
+        <tr>
+            <td class="day-col">SATURDAY</td>
+            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+            <td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+        </tr>
+
+    </table>
+
+    <!-- ===== COURSE DETAILS ===== -->
+    <div class="details-section">
+        <h2>&#128218; Course Details</h2>
+
+        <!-- CSC574 -->
+        <div class="course-card" id="csc574">
+            <div class="card-header">
+                Dynamic Web Application
+                <span class="code-badge">CSC574</span>
+            </div>
+            <table>
+                <tr><td>Course Name</td><td>Dynamic Web Application</td></tr>
+                <tr><td>Course Code</td><td>CSC574</td></tr>
+                <tr><td>Credit Hours</td><td>3</td></tr>
+                <tr><td>Group</td><td>Zeta MK3</td></tr>
+                <tr><td>Lecturer</td><td>Siti Rozanae Bt Ismail</td></tr>
+                <tr><td>Day &amp; Time</td><td>Isnin 14:00–16:00 &nbsp;|&nbsp; Khamis 11:00–13:00</td></tr>
+            </table>
+        </div>
+        <div class="back-top"><a href="#top">&#8679; Back to Timetable</a></div>
+
+        <!-- CSC577 -->
+        <div class="course-card" id="csc577">
+            <div class="card-header">
+                Software Engineering - Theories and Principles
+                <span class="code-badge">CSC577</span>
+            </div>
+            <table>
+                <tr><td>Course Name</td><td>Software Engineering - Theories and Principles</td></tr>
+                <tr><td>Course Code</td><td>CSC577</td></tr>
+                <tr><td>Credit Hours</td><td>3</td></tr>
+                <tr><td>Group</td><td>Zeta MK2 / DK 200A</td></tr>
+                <tr><td>Lecturer</td><td>Ahmad Farid Bin Najmuddin</td></tr>
+                <tr><td>Day &amp; Time</td><td>Isnin 09:00–11:00 &nbsp;|&nbsp; Rabu 08:30–10:30</td></tr>
+            </table>
+        </div>
+        <div class="back-top"><a href="#top">&#8679; Back to Timetable</a></div>
+
+        <!-- CSC569 -->
+        <div class="course-card" id="csc569">
+            <div class="card-header">
+                Principles of Compilers
+                <span class="code-badge">CSC569</span>
+            </div>
+            <table>
+                <tr><td>Course Name</td><td>Principles of Compilers</td></tr>
+                <tr><td>Course Code</td><td>CSC569</td></tr>
+                <tr><td>Credit Hours</td><td>3</td></tr>
+                <tr><td>Group</td><td>Zeta BK3</td></tr>
+                <tr><td>Lecturer</td><td>Nurkhairizan Binti Khairudin</td></tr>
+                <tr><td>Day &amp; Time</td><td>Isnin 11:00–13:00 &nbsp;|&nbsp; Rabu 13:00–15:00</td></tr>
+            </table>
+        </div>
+        <div class="back-top"><a href="#top">&#8679; Back to Timetable</a></div>
+
+        <!-- CSC584 -->
+        <div class="course-card" id="csc584">
+            <div class="card-header">
+                Enterprise Programming
+                <span class="code-badge">CSC584</span>
+            </div>
+            <table>
+                <tr><td>Course Name</td><td>Enterprise Programming</td></tr>
+                <tr><td>Course Code</td><td>CSC584</td></tr>
+                <tr><td>Credit Hours</td><td>3</td></tr>
+                <tr><td>Group</td><td>Zeta MK1 / Zeta MK3</td></tr>
+                <tr><td>Lecturer</td><td>Masurah Binti Mohamad</td></tr>
+                <tr><td>Day &amp; Time</td><td>Selasa 10:00–12:00 &nbsp;|&nbsp; Jumaat 10:00–12:00</td></tr>
+            </table>
+        </div>
+        <div class="back-top"><a href="#top">&#8679; Back to Timetable</a></div>
+
+        <!-- CSC508 -->
+        <div class="course-card" id="csc508">
+            <div class="card-header">
+                Data Structures
+                <span class="code-badge">CSC508</span>
+            </div>
+            <table>
+                <tr><td>Course Name</td><td>Data Structures</td></tr>
+                <tr><td>Course Code</td><td>CSC508</td></tr>
+                <tr><td>Credit Hours</td><td>3</td></tr>
+                <tr><td>Group</td><td>Zeta BK3</td></tr>
+                <tr><td>Lecturer</td><td>Suraya Binti Masrom</td></tr>
+                <tr><td>Day &amp; Time</td><td>Selasa 13:00–15:00 &nbsp;|&nbsp; Khamis 09:00–11:00</td></tr>
+            </table>
+        </div>
+        <div class="back-top"><a href="#top">&#8679; Back to Timetable</a></div>
+
+        <!-- LCC500 -->
+        <div class="course-card" id="lcc500">
+            <div class="card-header">
+                English for Workplace Communication
+                <span class="code-badge">LCC500</span>
+            </div>
+            <table>
+                <tr><td>Course Name</td><td>English for Workplace Communication</td></tr>
+                <tr><td>Course Code</td><td>LCC500</td></tr>
+                <tr><td>Credit Hours</td><td>3</td></tr>
+                <tr><td>Group</td><td>Zeta BK3</td></tr>
+                <tr><td>Lecturer</td><td>Nurdiyana Binti Mohamad Yusof</td></tr>
+                <tr><td>Day &amp; Time</td><td>Selasa 16:00–17:30</td></tr>
+            </table>
+        </div>
+        <div class="back-top"><a href="#top">&#8679; Back to Timetable</a></div>
+
+        <!-- TMC451 -->
+        <div class="course-card" id="tmc451">
+            <div class="card-header">
+                Introductory Mandarin (Level II)
+                <span class="code-badge">TMC451</span>
+            </div>
+            <table>
+                <tr><td>Course Name</td><td>Introductory Mandarin (Level II)</td></tr>
+                <tr><td>Course Code</td><td>TMC451</td></tr>
+                <tr><td>Credit Hours</td><td>3</td></tr>
+                <tr><td>Group</td><td>Zeta BK5</td></tr>
+                <tr><td>Lecturer</td><td>Sin Mei Kuan</td></tr>
+                <tr><td>Day &amp; Time</td><td>Rabu 17:00–18:30</td></tr>
+            </table>
+        </div>
+        <div class="back-top"><a href="#top">&#8679; Back to Timetable</a></div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <a href="disclaimer.html">Disclaimer &amp; Copyright</a>
+    &copy; 2026 Nur Aisha Binti Noralimin. All rights reserved.
+</footer>
+
+</body>
+</html>

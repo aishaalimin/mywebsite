@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Biography - My Personal Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #F5FFFA; color: #003333; }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #00494C;
+            padding: 15px 30px;
+        }
+        header img#logo { height: 50px; cursor: pointer; border: 2px solid #F5FFFA; border-radius: 8px; }
+        .social-media a img { height: 38px; margin-left: 10px; border-radius: 6px; }
+        .social-media a img:hover { opacity: 0.75; }
+
+        /* NAV */
+        nav { background: #008080; text-align: center; padding: 12px; }
+        nav a { color: #F5FFFA; text-decoration: none; margin: 0 14px; font-weight: bold; font-size: 15px; }
+        nav a:hover { color: #00CED1; text-decoration: underline; }
+
+        /* PAGE CONTENT */
+        .page-title {
+            background: #008080;
+            color: #F5FFFA;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.6em;
+            letter-spacing: 1px;
+        }
+
+        .bio-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .bio-card {
+            background: white;
+            border: 2px solid #008080;
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .bio-card img {
+            width: 180px;
+            height: 210px;
+            object-fit: cover;
+            border: 3px solid #008080;
+            border-radius: 8px;
+        }
+
+        .bio-info h2 {
+            color: #00494C;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #008080;
+            padding-bottom: 8px;
+        }
+
+        .bio-info table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 16px;
+        }
+        .bio-info td {
+            padding: 6px 10px;
+            font-size: 15px;
+            vertical-align: top;
+        }
+        .bio-info td:first-child {
+            font-weight: bold;
+            color: #008080;
+            width: 140px;
+        }
+
+        .bio-about {
+            background: white;
+            border: 2px solid #008080;
+            border-radius: 10px;
+            padding: 25px 30px;
+        }
+        .bio-about h3 {
+            color: #00494C;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            border-bottom: 1px solid #80C4C0;
+            padding-bottom: 6px;
+        }
+        .bio-about p {
+            line-height: 1.8;
+            color: #003333;
+            font-size: 15px;
+        }
+
+        /* FOOTER */
+        footer { background: #00494C; color: #F5FFFA; text-align: center; padding: 18px; margin-top: 40px; font-size: 14px; }
+        footer a { color: #00CED1; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.htm"><img id="logo" src="pic/logo.jpg" alt="My Logo"></a>
+    <div class="social-media">
+        <a href="https://x.com/" target="_blank"><img src="pic/x.png" alt="X"></a>
+        <a href="https://www.facebook.com/" target="_blank"><img src="pic/facebook.png" alt="Facebook"></a>
+        <a href="https://instagram.com" target="_blank"><img src="pic/ig.jpg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img src="pic/youtube.png" alt="Youtube"></a>
+    </div>
+</header>
+
+<!-- NAV -->
+<nav>
+    <a href="biography.html">Biography</a>
+    <a href="resume.html">Resume</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="gallery.html">Galleries</a>
+    <a href="download.html">Download</a>
+    <a href="links.html">Links</a>
+    <a href="login.php">Login</a>
+    <a href="admin/logout.php">Logout</a>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="page-title">Biography</div>
+
+<!-- BIO CONTENT -->
+<div class="bio-container">
+
+    <!-- Profile Card -->
+    <div class="bio-card">
+        <img src="pic/aisha.png" alt="My Photo">
+        <div class="bio-info">
+            <h2>NUR AISHA BINTI NORALIMIN</h2>
+            <table>
+                <tr><td>Student ID</td><td>: 2024800846</td></tr>
+                <tr><td>Date of Birth</td><td>: 07/12/2005</td></tr>
+                <tr><td>Gender</td><td>: Female</td></tr>
+                <tr><td>Nationality</td><td>: Malaysian</td></tr>
+                <tr><td>Religion</td><td>: Islam</td></tr>
+                <tr><td>Programme</td><td>: CDCS230</td></tr>
+                <tr><td>Faculty</td><td>: FSKM, UiTM Cawangan Perak, Kampus Tapah</td></tr>
+                <tr><td>Email</td><td>: aishaalimin@gmail.com</td></tr>
+                <tr><td>Phone</td><td>: 0182345970</td></tr>
+                <tr><td>Hometown</td><td>: Rawang, Selangor</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <!-- About Me -->
+    <div class="bio-about">
+        <h3>About Me</h3>
+        <p>
+            My name is Nur Aisha Binti Noralimin and I am currently pursuing a
+            Degree in Computer Science (CDCS230) at Universiti Teknologi MARA (UiTM),
+            Cawangan Perak, Kampus Tapah. I am passionate about technology and enjoy
+            learning new programming skills especially in web development. In my free
+            time, I love listening to music, spending time with friends and exploring
+            new things. I created this website as part of my CSC574 Dynamic Web Application assignment.
+        </p>
+        </p>
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <a href="disclaimer.html">Disclaimer &amp; Copyright</a>
+    &copy; 2026 Nur Aisha binti Noralimin. All rights reserved.
+</footer>
+
+</body>
+</html>

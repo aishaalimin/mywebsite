@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Personal Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: Arial, sans-serif; background: #F5FFFA; color: #003333; }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #00494C;
+            padding: 15px 30px;
+        }
+        header img#logo {
+            height: 50px;
+            cursor: pointer;
+            border: 2px solid #F5FFFA;
+            border-radius: 8px;
+        }
+        .social-media a img {
+            height: 38px;
+            margin-left: 10px;
+            border-radius: 6px;
+            transition: opacity 0.2s;
+        }
+        .social-media a img:hover { opacity: 0.75; }
+
+        /* NAV */
+        nav {
+            background: #008080;
+            text-align: center;
+            padding: 12px;
+        }
+        nav a {
+            color: #F5FFFA;
+            text-decoration: none;
+            margin: 0 14px;
+            font-weight: bold;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+        }
+        nav a:hover {
+            color: #00CED1;
+            text-decoration: underline;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, #00494C, #008080);
+            color: #F5FFFA;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+        }
+        .hero h1 {
+            font-size: 2.6em;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        .hero p {
+            font-size: 1.15em;
+            color: #E0F5F0;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .hero .btn-explore {
+            display: inline-block;
+            background: #F5FFFA;
+            color: #00494C;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 15px;
+            transition: background 0.2s, color 0.2s;
+            position: relative;
+        }
+        .hero .btn-explore:hover {
+            background: #00CED1;
+            color: #F5FFFA;
+        }
+
+        /* QUICK LINKS SECTION */
+        .quick-section {
+            max-width: 960px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .quick-section h2 {
+            text-align: center;
+            color: #00494C;
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #008080;
+            padding-bottom: 10px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid #008080;
+            border-radius: 12px;
+            padding: 24px 16px;
+            text-align: center;
+            text-decoration: none;
+            color: #003333;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,128,128,0.2);
+            border-color: #00494C;
+        }
+        .card .card-icon {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .card .card-title {
+            font-weight: bold;
+            font-size: 14px;
+            color: #00494C;
+        }
+
+        /* ABOUT STRIP */
+        .about-strip {
+            background: #E8F8F5;
+            border-top: 2px solid #A8DCDA;
+            border-bottom: 2px solid #A8DCDA;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .about-strip h3 {
+            color: #00494C;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .about-strip p {
+            color: #004D4D;
+            font-size: 14px;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #00494C;
+            color: #F5FFFA;
+            text-align: center;
+            padding: 18px;
+            margin-top: 0;
+            font-size: 14px;
+        }
+        footer a {
+            color: #00CED1;
+            text-decoration: none;
+        }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.htm">
+        <img id="logo" src="pic/logo.jpg" alt="My Logo">
+    </a>
+    <div class="social-media">
+        <a href="https://x.com/" target="_blank"><img src="pic/x.png" alt="X"></a>
+        <a href="https://www.facebook.com/" target="_blank"><img src="pic/facebook.png" alt="Facebook"></a>
+        <a href="https://instagram.com" target="_blank"><img src="pic/ig.jpg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img src="pic/youtube.png" alt="Youtube"></a>
+    </div>
+</header>
+
+<!-- NAV -->
+<nav>
+    <a href="biography.html">Biography</a>
+    <a href="resume.html">Resume</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="gallery.html">Galleries</a>
+    <a href="download.html">Download</a>
+    <a href="links.html">Links</a>
+    <a href="login.php">Login</a>
+    <a href="admin/logout.php">Logout</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>&#127760; Welcome to My Website!</h1>
+    <p>Hello! My name is Aisha. This is my personal website for CSC574.</p>
+    <a href="#quick-nav" class="btn-explore">Explore About Me &#8594;</a>
+</div>
+
+<!-- QUICK LINKS -->
+<div class="quick-section" id="quick-nav">
+    <h2>&#128205; Quick Navigation</h2>
+    <div class="card-grid">
+        <a href="biography.html" class="card">
+            <span class="card-icon">&#128100;</span>
+            <span class="card-title">Biography</span>
+        </a>
+        <a href="resume.html" class="card">
+            <span class="card-icon">&#128196;</span>
+            <span class="card-title">Resume</span>
+        </a>
+        <a href="timetable.html" class="card">
+            <span class="card-icon">&#128197;</span>
+            <span class="card-title">Time Table</span>
+        </a>
+        <a href="gallery.html" class="card">
+            <span class="card-icon">&#128247;</span>
+            <span class="card-title">Galleries</span>
+        </a>
+        <a href="download.html" class="card">
+            <span class="card-icon">&#11015;&#65039;</span>
+            <span class="card-title">Download</span>
+        </a>
+        <a href="links.html" class="card">
+            <span class="card-icon">&#128279;</span>
+            <span class="card-title">Links</span>
+        </a>
+        <a href="login.php" class="card">
+            <span class="card-icon">&#128274;</span>
+            <span class="card-title">Login</span>
+        </a>
+        <a href="disclaimer.html" class="card">
+            <span class="card-icon">&#9888;&#65039;</span>
+            <span class="card-title">Disclaimer</span>
+        </a>
+    </div>
+</div>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+    <h3>&#127891; About This Website</h3>
+    <p>
+        This personal website was built as part of the CSC574 Dynamic Web Application
+        assignment at Universiti Teknologi MARA (UiTM). It showcases my biography,
+        resume, class timetable, photo gallery and more.
+    </p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <a href="disclaimer.html">Disclaimer &amp; Copyright</a>
+    &copy; 2026 Nur Aisha Binti Noralimin. All rights reserved.
+</footer></body>
+</html>

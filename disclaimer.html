@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Disclaimer & Copyright - My Personal Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #F5FFFA; color: #003333; }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            background: #00494C; padding: 15px 30px;
+        }
+        header img#logo { height: 50px; cursor: pointer; border: 2px solid #F5FFFA; border-radius: 8px; }
+        .social-media a img { height: 38px; margin-left: 10px; border-radius: 6px; }
+        .social-media a img:hover { opacity: 0.75; }
+
+        nav { background: #008080; text-align: center; padding: 12px; }
+        nav a { color: #F5FFFA; text-decoration: none; margin: 0 14px; font-weight: bold; font-size: 15px; }
+        nav a:hover { color: #00CED1; text-decoration: underline; }
+
+        .page-title {
+            background: #008080; color: #F5FFFA;
+            text-align: center; padding: 20px; font-size: 1.6em; letter-spacing: 1px;
+        }
+
+        /* CONTAINER */
+        .disc-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* CARD */
+        .disc-card {
+            background: white;
+            border: 2px solid #008080;
+            border-radius: 12px;
+            padding: 35px 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 14px rgba(0,128,128,0.1);
+        }
+
+        .disc-card h2 {
+            color: #00494C;
+            font-size: 1.2em;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #A8DCDA;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .disc-card p {
+            color: #003333;
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 12px;
+        }
+
+        .disc-card p:last-child { margin-bottom: 0; }
+
+        /* HIGHLIGHT BOX */
+        .highlight {
+            background: #E8F8F5;
+            border-left: 4px solid #008080;
+            border-radius: 0 8px 8px 0;
+            padding: 14px 18px;
+            margin-top: 14px;
+            font-size: 14px;
+            color: #004D4D;
+            line-height: 1.8;
+        }
+
+        /* COPYRIGHT BANNER */
+        .copyright-banner {
+            background: #00494C;
+            color: #F5FFFA;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .copyright-banner .year {
+            font-size: 3em;
+            font-weight: bold;
+            color: #00CED1;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .copyright-banner p {
+            font-size: 14px;
+            color: #E0F5F0;
+            line-height: 1.8;
+        }
+        .copyright-banner .symbol {
+            font-size: 2em;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* BACK BUTTON */
+        .back-btn {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 40px auto;
+            background: #008080;
+            color: #F5FFFA;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .back-btn:hover { background: #00494C; }
+
+        footer { background: #00494C; color: #F5FFFA; text-align: center; padding: 18px; margin-top: 0; font-size: 14px; }
+        footer a { color: #00CED1; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.htm"><img id="logo" src="pic/logo.jpg" alt="My Logo"></a>
+    <div class="social-media">
+        <a href="https://x.com/" target="_blank"><img src="pic/x.png" alt="X"></a>
+        <a href="https://www.facebook.com/" target="_blank"><img src="pic/facebook.png" alt="Facebook"></a>
+        <a href="https://instagram.com" target="_blank"><img src="pic/ig.jpg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img src="pic/youtube.png" alt="Youtube"></a>
+    </div>
+</header>
+
+<!-- NAV -->
+<nav>
+    <a href="biography.html">Biography</a>
+    <a href="resume.html">Resume</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="gallery.html">Galleries</a>
+    <a href="download.html">Download</a>
+    <a href="links.html">Links</a>
+    <a href="login.php">Login</a>
+    <a href="admin/logout.php">Logout</a>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="page-title">Disclaimer &amp; Copyright</div>
+
+<div class="disc-container">
+
+    <!-- COPYRIGHT BANNER -->
+    <div class="copyright-banner">
+        <span class="symbol">&#169;</span>
+        <span class="year">2026</span>
+        <p>This website is owned and created by <strong>Aisha</strong>.<br>
+        All rights reserved. Unauthorized use or reproduction is prohibited.</p>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="disc-card">
+        <h2>&#9888;&#65039; Disclaimer</h2>
+        <p>
+            This website was created solely for educational purposes as part of the
+            <strong>CSC574 — DYNAMIC WEB APPLICATION DEVELOPMENT</strong> assignment at
+            <strong>Universiti Teknologi MARA (UiTM)</strong>.
+        </p>
+        <p>
+            The information provided on this website is based on personal data and
+            academic records of the owner. While every effort has been made to ensure
+            accuracy, the owner makes no guarantees regarding the completeness or
+            reliability of any information on this site.
+        </p>
+        <div class="highlight">
+            &#128204; The owner is not responsible for any errors, omissions, or results
+            obtained from the use of this information. All external links provided on
+            this website are for reference purposes only.
+        </div>
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="disc-card">
+        <h2>&#128274; Copyright Notice</h2>
+        <p>
+            All content on this website — including but not limited to text, images,
+            photographs, graphics, and layout — is the intellectual property of
+            <strong>Aisha</strong> unless otherwise stated.
+        </p>
+        <p>
+            You may not reproduce, distribute, modify, or republish any material from
+            this website without prior written permission from the owner.
+        </p>
+        <div class="highlight">
+            &#128204; Images used in the Gallery section are personal photographs owned
+            by the website creator. Social media icons and external logos belong to
+            their respective owners and are used for reference only.
+        </div>
+    </div>
+
+    <!-- PRIVACY -->
+    <div class="disc-card">
+        <h2>&#128100; Privacy</h2>
+        <p>
+            <p>
+            This website collects basic registration information through the Sign Up form.
+            The Login system is connected to a database for admin authentication purposes only.
+            All data is stored securely and used solely for academic demonstration as part of
+            the CSC574 assignment.
+        </p>
+        </p>
+        <div class="highlight">
+            &#128204; Your privacy is important. No cookies or tracking tools are
+            used on this website.
+        </div>
+    </div>
+
+    <!-- BACK BUTTON -->
+    <a href="index.htm" class="back-btn">&#8592; Back to Home</a>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <a href="disclaimer.html">Disclaimer &amp; Copyright</a>
+    &copy; 2026 Nur Aisha binti Noralimin. All rights reserved.
+</footer>
+
+</body>
+</html>

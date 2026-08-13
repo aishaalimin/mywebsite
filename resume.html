@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume - My Personal Website</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #F5FFFA; color: #003333; }
+
+        /* HEADER */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #00494C;
+            padding: 15px 30px;
+        }
+        header img#logo { height: 50px; cursor: pointer; border: 2px solid #F5FFFA; border-radius: 8px; }
+        .social-media a img { height: 38px; margin-left: 10px; border-radius: 6px; }
+        .social-media a img:hover { opacity: 0.75; }
+
+        /* NAV */
+        nav { background: #008080; text-align: center; padding: 12px; }
+        nav a { color: #F5FFFA; text-decoration: none; margin: 0 14px; font-weight: bold; font-size: 15px; }
+        nav a:hover { color: #00CED1; text-decoration: underline; }
+
+        /* PAGE TITLE */
+        .page-title {
+            background: #008080;
+            color: #F5FFFA;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.6em;
+            letter-spacing: 1px;
+        }
+
+        /* RESUME CONTAINER */
+        .resume-container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* MAIN RESUME TABLE */
+        .resume-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border: 2px solid #008080;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* NAME BANNER ROW */
+        .name-row td {
+            background: #00494C;
+            color: #F5FFFA;
+            text-align: center;
+            padding: 20px;
+        }
+        .name-row h1 { font-size: 1.8em; margin-bottom: 4px; }
+        .name-row p { font-size: 14px; color: #E0F5F0; }
+
+        /* SECTION HEADER ROW */
+        .section-header td {
+            background: #008080;
+            color: #F5FFFA;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 8px 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* CONTENT ROW */
+        .content-row td {
+            padding: 12px 20px;
+            vertical-align: top;
+            border-bottom: 1px solid #A8DCDA;
+        }
+        .content-row td:first-child {
+            font-weight: bold;
+            color: #008080;
+            width: 180px;
+            border-right: 1px solid #A8DCDA;
+        }
+
+        /* LISTS inside table cells */
+        ul, ol {
+            padding-left: 20px;
+            line-height: 1.9;
+        }
+        ul li { list-style-type: disc; }
+        ol li { list-style-type: decimal; }
+
+        /* nested list */
+        ul ul { list-style-type: circle; margin-top: 4px; }
+        ol ul { list-style-type: circle; margin-top: 4px; }
+
+        /* FOOTER */
+        footer { background: #00494C; color: #F5FFFA; text-align: center; padding: 18px; margin-top: 40px; font-size: 14px; }
+        footer a { color: #00CED1; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.htm"><img id="logo" src="pic/logo.jpg" alt="My Logo"></a>
+    <div class="social-media">
+        <a href="https://x.com/" target="_blank"><img src="pic/x.png" alt="X"></a>
+        <a href="https://www.facebook.com/" target="_blank"><img src="pic/facebook.png" alt="Facebook"></a>
+        <a href="https://instagram.com" target="_blank"><img src="pic/ig.jpg" alt="Instagram"></a>
+        <a href="https://www.youtube.com/" target="_blank"><img src="pic/youtube.png" alt="Youtube"></a>
+    </div>
+</header>
+
+<!-- NAV -->
+<nav>
+    <a href="biography.html">Biography</a>
+    <a href="resume.html">Resume</a>
+    <a href="timetable.html">Timetable</a>
+    <a href="gallery.html">Galleries</a>
+    <a href="download.html">Download</a>
+    <a href="links.html">Links</a>
+    <a href="login.php">Login</a>
+    <a href="admin/logout.php">Logout</a>
+</nav>
+
+<!-- PAGE TITLE -->
+<div class="page-title">Resume</div>
+
+<!-- RESUME -->
+<div class="resume-container">
+<table class="resume-table">
+
+    <!-- NAME & CONTACT -->
+    <tr class="name-row">
+        <td colspan="2">
+            <h1>NUR AISHA BINTI NORALIMIN</h1>
+            <p>aishaalimin@gmail.com | 0182345970 | Rawang, Selangor</p>
+        </td>
+    </tr>
+
+    <!-- SUMMARY -->
+    <tr class="section-header"><td colspan="2">&#127919; Summary</td></tr>
+    <tr class="content-row">
+        <td colspan="2">
+            Computer Science student at UiTM Cawangan Perak, Kampus Tapah, looking for an opportunity to gain hands-on
+experience in web development, software development and database management. Experienced in HTML, CSS, JavaScript,
+PHP and MySQL through academic projects and laboratory work. Highly motivated and willing to learn in an industrial
+environment
+        </td>
+    </tr>
+
+    <!-- PERSONAL DETAILS -->
+    <tr class="section-header"><td colspan="2">&#128100; Personal Details</td></tr>
+    <tr class="content-row">
+        <td>Full Name</td><td>NUR AISHA BINTI NORALIMIN</td>
+    </tr>
+    <tr class="content-row">
+        <td>Date of Birth</td><td>07/12/2005</td>
+    </tr>
+    <tr class="content-row">
+        <td>Gender</td><td>Female</td>
+    </tr>
+    <tr class="content-row">
+        <td>Nationality</td><td>Malaysian</td>
+    </tr>
+    <tr class="content-row">
+        <td>Address</td>
+        <td>
+            No 3 Jalan Ke 1/1,<br>
+            Kota Emerald,<br>
+            48000 Rawang,
+            Selangor.
+        </td>
+    </tr>
+
+    <!-- EDUCATION — nested list required -->
+    <tr class="section-header"><td colspan="2">&#127891; Education</td></tr>
+    <tr class="content-row">
+        <td>Degree</td>
+        <td>
+            <ul>
+                <li>Bachelor of Computer Science (Hons), UiTM
+                    <ul>
+                        <li>Expected graduation: 2028</li>
+                        <li>Current CGPA: 3.81</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr class="content-row">
+        <td>Foundation</td>
+        <td>
+            <ul>
+                <li>Kolej Matrikulasi Johor
+                    <ul>
+                        <li>Sains Fizikal</li>
+                        <li> CGPA: 3.88</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+    </tr>
+
+    <tr class="content-row">
+        <td>Secondary</td>
+        <td>
+            <ul>
+                <li>SPM — SMK RAWANG
+                    <ul>
+                        <li>Year: 2018-2022</li>
+                        <li>Result: 4A 7B</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+    </tr>
+
+    <!-- SKILLS — ordered list required -->
+    <tr class="section-header"><td colspan="2">&#128187; Skills</td></tr>
+    <tr class="content-row">
+        <td>Technical</td>
+        <td>
+            <ol>
+                <li>HTML & CSS</li>
+                <li>Java</li>
+                <li>PHP & MySQL</li>
+                <li>Microsoft Office (Word, Excel, PowerPoint)</li>
+            </ol>
+        </td>
+    </tr>
+    <tr class="content-row">
+        <td>Soft Skills</td>
+        <td>
+            <ul>
+                <li>Time Management</li>
+                <li>Teamwork & Collaboration</li>
+                <li>Communication</li>
+                <li>Problem Solving</li>
+            </ul>
+        </td>
+    </tr>
+
+    <!-- PROJECTS -->
+    <tr class="section-header"><td colspan="2">&#128187; Projects</td></tr>
+    <tr class="content-row">
+        <td>2025/2026</td>
+        <td>
+            <ul>
+                <li><strong>SwiftCare — Clinic Booking Appointment System</strong>
+                    <ul>
+                        <li>Built using PHP, MySQL, HTML & CSS</li>
+                        <li>Features include appointment booking, admin management and subscription system</li>
+                        <li>Developed as part of CSC577 & CSC574 group project</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr class="content-row">
+        <td>2025/2026</td>
+        <td>
+            <ul>
+                <li><strong>Personal Website</strong>
+                    <ul>
+                        <li>Built using HTML, CSS, JavaScript, PHP & MySQL</li>
+                        <li>Features include biography, resume, timetable, gallery and admin CRUD system</li>
+                        <li>Developed as part of CSC574 individual assignment</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr class="content-row">
+        <td>2025/2026</td>
+        <td>
+            <ul>
+                <li><strong>DrinkVault — Inventory Management System</strong>
+                    <ul>
+                        <li>Built using Java with LinkedList and ArrayList data structures</li>
+                        <li>Features include add, remove and display drink inventory</li>
+                        <li>Developed as part of CSC508 Data Structures assignment</li>
+                    </ul>
+                </li>
+            </ul>
+        </td>
+    </tr>
+
+    <!-- ADDITIONAL INFORMATION -->
+    <tr class="section-header"><td colspan="2">&#128221; Additional Information</td></tr>
+    <tr class="content-row">
+        <td>Languages</td>
+        <td>
+            <ul>
+                <li>Bahasa Melayu (Native)</li>
+                <li>English (Fluent)</li>
+                <li>Mandarin (Beginner)</li>
+            </ul>
+        </td>
+    </tr>
+    <tr class="content-row">
+        <td>Experience</td>
+        <td>
+            <ul>
+                <li>Served as a Peer Assisted Learning (PAL) Leader for Mathematics at Kolej Matrikulasi Johor</li>
+            </ul>
+        </td>
+    </tr>
+    <tr class="content-row">
+        <td>Activities</td>
+        <td>
+            <ul>
+                <li>Members of BASCO club</li>
+            </ul>
+        </td>
+    </tr>
+
+    <!-- REFEREES -->
+    <tr class="section-header"><td colspan="2">&#128222; References</td></tr>
+    <tr class="content-row">
+        <td>Name</td><td>Siti Rozanae Bt Ismail</td>
+    </tr>
+    <tr class="content-row">
+        <td>Position</td><td>Lecturer</td>
+    </tr>
+    <tr class="content-row">
+        <td>Institution</td><td>UiTM Tapah Campus</td>
+    </tr>
+    <tr class="content-row">
+        <td>Contact</td><td>0123456789</td>
+    </tr>
+
+</table>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <a href="disclaimer.html">Disclaimer &amp; Copyright</a>
+    &copy; 2026 Nur Aisha binti Noralimin. All rights reserved.
+</footer>
+
+</body>
+</html>
